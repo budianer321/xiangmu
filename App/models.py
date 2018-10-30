@@ -1,3 +1,7 @@
 from django.db import models
 
 # Create your models here.
+class User(models.Model):
+    user_name = models.CharField(max_length=20)
+    psw1 = models.CharField(max_length=256)
+    user_img = models.CharField(max_length=256)

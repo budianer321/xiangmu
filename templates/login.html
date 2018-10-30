@@ -20,8 +20,8 @@
 			<div class="headerbar">
 				<div class="hb_content">
 					<div class="hb_con_left">
-						<a href="" class="register">注册</a>
-						<a href="" class="login">登录</a>
+						<a href="/register/" class="register">注册</a>
+						<a href="/login/" class="login">登录</a>
 						<a href="">订单查询</a>
 					</div>
 					<div class="hb_con_right">
@@ -41,7 +41,7 @@
 							</div>
 						</div>
 						<div class="bag">
-							<a href="cart.html">
+							<a href="/cart/">
 								<div class="bag_n">
 								<img src="{% static 'img/shopping.png' %}" class="bag_icon">
 								<span>购物袋（<t style="color: #8E0C3A;">0</t>）</span>
@@ -79,18 +79,20 @@
 					<img src="{% static 'img/register_bg.png' %}">
 				</div>
 				<p class="voucher">手机验证完成即送<b>100</b>元代金券</p>
-				<!--<form class="registerform" method="post">-->
+{################form#################}
+				<form class="registerform" method="post">
+                    {% csrf_token %}
 					<div class="register_box">
 						<div class="input_zone">
 							<div class="input_l"><i>手机/邮箱：</i></div>
 							<div class="input_r">
-								<input type="text" class="user_name" value="" style="color: rgb(204, 204, 204);font-size: 12px;">
+								<input type="text" name="user_name" value="" style="color: rgb(204, 204, 204);font-size: 12px;">
 							</div>
 						</div>
 						<div class="input_zone">
 							<div class="input_l"><i>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</i></div>
 							<div class="input_r">
-								<input type="password" class="psw">
+								<input type="password" name="psw1">
 							</div>
 						</div>
 						<div class="meici_tag">
@@ -108,7 +110,7 @@
 							<p class="regInfo_msg"></p>
 						</div>
 					</div>
-				<!--</form>-->
+				</form>
 			</div>
 		</div>
 		<div class="footer">
