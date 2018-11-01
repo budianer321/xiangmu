@@ -452,6 +452,20 @@
 			<!-----轮播图----->
 			<div class="slides">
 				<ul class="main_slide">
+                    <li class="swiper-container" id="topSwiper" >
+                        <div class="swiper-wrapper">
+                            {% for wheel in wheels %}
+                                <div class="swiper-slide">
+{#                                    <img src="{{ wheel.img }}" alt="">#}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+            {#            <div class="swiper-button-next"></div>#}
+            {#            <div class="swiper-button-prev"></div>#}
+                    </li>
 
 				</ul>
 				<div class="pre" style="left: 10px;">&lt;</div>
