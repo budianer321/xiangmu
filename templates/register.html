@@ -82,19 +82,19 @@
 
 
 {#########form表单#####################}
-    			<form class="registerform" method="post">
+    			<form class="registerform" method="post" action="/register/">
                     {% csrf_token %}
 					<div class="register_box">
 						<div class="input_zone">
 							<div class="input_l"><i>手机/邮箱：</i></div>
 							<div class="input_r">
-								<input type="text" class="user_name" value="手机注册更享好礼" style="color: rgb(204, 204, 204);font-size: 12px;">
+								<input type="text" class="user_name" name="user_name" value="手机注册更享好礼" style="color: rgb(204, 204, 204);font-size: 12px;">
 							</div>
 						</div>
 						<div class="input_zone">
-							<div class="input_l"><i>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</i></div>
+							<div class="input_l"><i>密&nbsp;&nbsp;&nbsp;码：</i></div>
 							<div class="input_r">
-								<input type="password" class="psw1">
+								<input type="password" class="psw1" name="psw1">
 							</div>
 						</div>
 						<div class="input_zone">

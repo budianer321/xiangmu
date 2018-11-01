@@ -88,10 +88,12 @@ def register(request):
 
 # 退出
 def logout(request):
+    # print('aaaaaaaaaaaaaa')
     # 重定向首页
     response = redirect('App:index')
 
     # 删除cookie
     response.delete_cookie('user_name')
+
 
     return response

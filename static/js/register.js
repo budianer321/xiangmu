@@ -78,11 +78,11 @@ $(function(){
 						
 			$.cookie("users", JSON.stringify(users), {expires:22, path:"/"});
 			console.log( $.cookie("users") );
-			location.href="../../templates/index1.html";
+			location.href="templates/index1.html";
 			
 		}
 		else{
-			return
+			return;
 		}
 	})
 })
