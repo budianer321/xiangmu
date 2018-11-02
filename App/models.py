@@ -15,5 +15,5 @@ class Wheel(models.Model):
     trackid = models.CharField(max_length=10)
 
     class Meta:
-        abstract = True
+        # abstract = True
         db_table = 'xm_wheel'

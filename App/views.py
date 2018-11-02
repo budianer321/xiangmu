@@ -7,6 +7,7 @@ from App.models import User, Wheel
 
 def index(request):
     wheels = Wheel.objects.all()
+    print(wheels)
     # 获取cookie
     user_name = request.COOKIES.get('user_name')
 
@@ -32,7 +33,7 @@ def login(request):
         # 获取数据
         user_name = request.POST.get('user_name')
         psw1 = request.POST.get('psw1')
-        print(user_name, psw1)
+        # print(user_name, psw1)
 
         # 验证
         # 数据库能找到，登录成功
@@ -41,7 +42,7 @@ def login(request):
         if users.count():  # 存在
 
             user = users.last()
-            print(user.user_name)
+            # print(user.user_name)
         #
             # 重定向首页
             response = redirect('App:index')
@@ -69,7 +70,7 @@ def register(request):
         # if psw1 != psw2:
 
 
-        print(user_name, psw1, psw2)
+        # print(user_name, psw1, psw2)
 
 
         # 存入数据库

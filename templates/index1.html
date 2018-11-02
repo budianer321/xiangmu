@@ -457,6 +457,7 @@
                             {% for wheel in wheels %}
                                 <div class="swiper-slide">
 {#                                    <img src="{{ wheel.img }}" alt="">#}
+                                    <img src="{% static wheel.img %}" alt="">
                                 </div>
                             {% endfor %}
                         </div>
