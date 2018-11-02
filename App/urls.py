@@ -9,6 +9,10 @@ urlpatterns = [
     url(r'^goods2/$', views.goods2,name='goods2'),
     url(r'^login/$', views.login,name='login'),
     url(r'^register/$', views.register,name='register'),
+<<<<<<< HEAD
     url(r'^logout/$', views.logout,name='logout'),
+=======
+    url(r'^logout/$', views.register,name='logout'),
+>>>>>>> d9ae1bb8275fd5f1919a2617057a76b2ddb66a9f
 
 ]
