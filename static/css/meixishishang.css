@@ -14,7 +14,29 @@
 .h2_float,.h3_float{margin-left: 6px;width: 316px;}
 .h1_float,.h2_float,.h3_float{float: left;}
 .img_left{float: left;height: 190px;}
+/* 头部轮播图部分*/
+/*#topSwiper {*/
+    /*height: 500px;*/
+    /*width: 100%;*/
+    /*overflow: hidden;*/
+/*}*/
 
+/*#topSwiper .swiper-wrapper{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+/*#topSwiper .swiper-slide{*/
+    /*display: inline-block;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+/*#topSwiper img{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+.swiper-pagination{
+    bottom: 0px;
+}
 /*商品列表轮播图*/
 .goods_scroll{position: relative;width: 960px;height:265px;overflow: hidden;margin: 0 auto;}
 /*.scroll_pro{width: 960px;overflow: hidden;height: 265px;}*/

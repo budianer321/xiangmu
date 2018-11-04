@@ -2,16 +2,25 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User, Wheel
+from App.models import User, Wheel, Goods_des
 
 
 def index(request):
     wheels = Wheel.objects.all()
-    print(wheels)
+    # print(wheels)
+
+    goods_des = Goods_des.objects.all()
+
     # 获取cookie
     user_name = request.COOKIES.get('user_name')
+    goods_de = goods_des.first()
+    date = {
+        'wheels': wheels,
+        'goods_des': goods_des,
 
-    return render(request, 'index1.html', context={'user_name': user_name,'wheels': wheels})
+    }
+    print(goods_de.name)
+    return render(request, 'index1.html', context=date)
 
 
 def cart(request):

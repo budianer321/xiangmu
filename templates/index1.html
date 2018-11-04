@@ -6,6 +6,8 @@
 		<title>美西时尚-全球奢侈品购物网站,奢侈品网购,正品折扣,尽在MEICI.COM</title>
 		<link rel="stylesheet" href="{% static 'css/meixishishang.css' %}" type="text/css">
 		<link rel="stylesheet" href="{% static 'css/shouwei.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/swiper.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/shouwei.css' %}" type="text/css">
 		<script src="{% static 'js/jquery-1.12.3.js' %}"></script>
         <script src="{% static 'js/jquery-3.1.0.js' %}"></script>
 		<script src="{% static 'js/jquery.cookie.js' %}"></script>
@@ -15,6 +17,13 @@
 		<script src="{% static 'js/goods_scroll.js' %}"></script>
 		<script src="{% static 'js/goods_info.js' %}"></script>
 		<script src="{% static 'js/goods_info2.js' %}"></script>
+        <script src="{% static 'js/index.js' %}"></script>
+        <script src="{% static 'js/swiper.js' %}"></script>
+        <script src="{% static 'js/goods_list1.js' %}"></script>
+
+{#        <script src="{% static 'css/swiper.css' %}"></script>#}
+
+
 {#        <script src="{% static 'js/test.js' %}"></script>#}
 	</head>
 
@@ -396,8 +405,47 @@
 									</div>
 								</div>
 								<div class="goods_con_right">
+
+{#  ##################今日推荐单品##############################################################                                  #}
 									<dt style="font-weight: bold;">今日推荐单品</dt>
 									<ul>
+
+{#                                        <li>#}
+{#                                            {% for goods_de in goods_des %}#}
+{#                                                <div class="info">#}
+{#                                                    <img src="{% static goods_de.img %}">#}
+{#                                                    <div class="goods_con_c">{{ goods_de.pinpai }}</div>#}
+{#                                                    <div class="des">{{ goods_de.desc }}</div>#}
+{##}
+{#                                                </div>#}
+{#                                            {% endfor %}#}
+{#                                        </li>#}
+                                        {% for goods_de in goods_des %}
+                                            <li>
+                                                <div class="info">
+                                                  <img src="{% static goods_de.img %}">
+                                                  <div class="goods_con_c">{{ goods_de.pinpai }}</div>
+                                                  <div class="des">{{ goods_de.desc }}</div>
+                                                </div>
+                                            </li>
+
+                                       {% endfor %}
+{#                                        <li>#}
+{#                                            <div class="info">#}
+{#                                                <img src="{% static 'img/lists_2.jpg' %}">#}
+{#                                                <div class="goods_con_c">Fendi 芬迪</div>#}
+{#                                                <div class="des">牛皮 女士 斜挎包</div>#}
+{#                                            </div>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="info">#}
+{#                                                <img src="{% static 'img/lists_3.jpg' %}">#}
+{#                                                <div class="goods_con_c">Prada 普拉达</div>#}
+{#                                                <div class="des">牛皮  男仕 平底鞋</div>#}
+{#                                            </div>#}
+{#                                        </li>#}
+
+
 
 									</ul>
 								</div>
@@ -449,29 +497,32 @@
 		</div>
 		<!--  内容  -->
 		<div class="main">
-			<!-----轮播图----->
-			<div class="slides">
-				<ul class="main_slide">
-                    <li class="swiper-container" id="topSwiper" >
-                        <div class="swiper-wrapper">
+{#			<!-----轮播图----->#}
+{#			<div class="slides">#}
+{#				<ul class="main_slide">#}
+                    <div class="swiper-container" id="topSwiper" >
+{#                    <div class="slides">#}
+{#                        <ul class="main_slide">#}
+                        <ul class="swiper-wrapper main_slide">
                             {% for wheel in wheels %}
-                                <div class="swiper-slide">
+                                <li class="swiper-slide">
+{#                                <li>#}
 {#                                    <img src="{{ wheel.img }}" alt="">#}
                                     <img src="{% static wheel.img %}" alt="">
-                                </div>
+                                </li>
                             {% endfor %}
-                        </div>
+                        </ul>
                         <!-- Add Pagination -->
                         <div class="swiper-pagination"></div>
                         <!-- Add Arrows -->
             {#            <div class="swiper-button-next"></div>#}
             {#            <div class="swiper-button-prev"></div>#}
-                    </li>
+                    </div>
 
-				</ul>
-				<div class="pre" style="left: 10px;">&lt;</div>
-				<div class="next" style="right: 10px;">&gt;</div>
-			</div>
+{#				</ul>#}
+                    <div class="pre" style="left: 10px;">&lt;</div>
+                    <div class="next" style="right: 10px;">&gt;</div>
+{#			</div>#}
 			<!--   商品推荐    -->
 			<div class="weekly">
 				<div class="theme">

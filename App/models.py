@@ -6,7 +6,7 @@ class User(models.Model):
     psw1 = models.CharField(max_length=256)
     user_img = models.CharField(max_length=256)
 
-class Wheel(models.Model):
+class Base(models.Model):
     # 图片
     img = models.CharField(max_length=100)
     # 名称
@@ -15,5 +15,18 @@ class Wheel(models.Model):
     trackid = models.CharField(max_length=10)
 
     class Meta:
-        # abstract = True
+        abstract = True
+
+class Wheel(Base):
+    class Meta:
         db_table = 'xm_wheel'
+
+
+#################################### 今日推荐单品##########################
+class Goods_des(Base):
+    # 品牌
+    pinpai = models.CharField(max_length=100)
+    # 描述
+    desc = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'goods_des'
