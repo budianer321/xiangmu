@@ -30,3 +30,17 @@ class Goods_des(Base):
     desc = models.CharField(max_length=100)
     class Meta:
         db_table = 'goods_des'
+
+
+class Cart(models.Model):
+    # 用户
+    user = models.ForeignKey(User)
+    # 商品
+    goods_des = models.ForeignKey(Goods_des)
+    # 商品数量(选择)
+    number = models.IntegerField()
+    # 是否选中
+    isselect = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = 'xm_cart'

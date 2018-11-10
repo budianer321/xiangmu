@@ -6,80 +6,93 @@ $(function(){
 				this.style.color='#6c6c6c';
 			};
 		})
-		$(".user_name").blur(function(){
+		$(".user_name").change(function(){
 			var u		= $(this).val();
-			var m_regx 	= /^(13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9})|w+([-+.']w+)*@w+([-.]w+)*.w+([-.]w+)*$/	
+			var m_regx 	= /^(13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9})|w+([-+.']w+)*@w+([-.]w+)*.w+([-.]w+)*$/
 			if(m_regx.test(u) ){
 				$('.regInfo_msg').html('');
 				this.style.borderColor="";
 				isName=true;
+				$('.btn_register').attr('disabled','disabled').removeAttr("disabled")
+
 			}
 			else{
 				this.style.borderColor="#8e0c3a";
 				$('.regInfo_msg').html('请输入正确的邮箱或手机号。');
 				isName=false;
+				$('.btn_register').attr('disabled','disabled').removeAttr("disabled")
 			}
+
+
 		})
 		var isPsw=false;
-		$('.psw1').blur(function(){
+		$('.psw1').change(function(){
 			var p	= $(this).val();
 			var p2  = $('.psw2').val();
 			if( p != '' && p.length >= 6 ){
 				$('.regInfo_msg').html('');
 				this.style.borderColor="";
 				isPsw=true;
+				$('.btn_register').attr('disabled','disabled').removeAttr("disabled")
 			}
 			else if(p==''){
 				this.style.borderColor="#8e0c3a";
 				$(".regInfo_msg").html("密码不能为空，请输入密码。")
 				isPsw=false;
+				$('.btn_register').removeAttr("disabled").attr('disabled','disabled')
+
 			}
-			else if(p.length<6||p.length>16){
-				
+			else
+				if(p.length<6||p.length>16){
+
 				this.style.borderColor="#8e0c3a";
 				$('.regInfo_msg').html('用户密码长度范围在6~16位之间。');
 				isPsw=false
+				$('.btn_register').removeAttr("disabled").attr('disabled','disabled')
 			}
 		})
-		$('.psw2').blur(function(){
+		$('.psw2').change(function(){
 			var p1  = $('.psw1').val();
 			var p2  = $(this).val();
 			if( p2 != '' && p1 == p2 ){
 				$('.regInfo_msg').html('');
 				this.style.borderColor="";
 				isName=true
+				$('.btn_register').attr('disabled','disabled').removeAttr("disabled")
 			}
 			else{
 				this.style.borderColor="#8e0c3a";
 				$('.regInfo_msg').html('您两次输入的密码不一致');
 				isPsw=false;
+				$('.btn_register').removeAttr("disabled").attr('disabled','disabled')
 			}
 		})
-	
-		
+
+
 	$(".btn_register").click(function(){
 		if(isName==true&&isPsw==true){
 			//注册(cookie存储)
-			var users = $.cookie("users") ? JSON.parse($.cookie("users")) : [];
+			var users = $.cookie("users") ? $.cookie("users") : [];
 			//先判断是否存在该用户
 			for (var i=0; i<users.length; i++) {
 				if ( users[i].name == $(".user_name").val() ) {
 					alert("用户名已存在! 不能注册相同的用户");
-						return;
+					$('.btn_register').removeAttr("disabled").attr('disabled','disabled')
+						return ;
 					}
 			}
-						
+
 			//注册用户
 			var user = {
 				name: $(".user_name").val(),
 				pwd: $(".psw1").val()
 			}
-			users.push(user); 
-						
-			$.cookie("users", JSON.stringify(users), {expires:22, path:"/"});
+			users.push(user);
+
+			$.cookie("users", stringify(users), {expires:22, path:"/"});
 			console.log( $.cookie("users") );
 			location.href="templates/index1.html";
-			
+
 		}
 		else{
 			return;
