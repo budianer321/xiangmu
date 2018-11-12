@@ -89,14 +89,20 @@ $(function(){
 // 			}
 //
 	// 加操作
-    $('.bags').click(function () {
+    $('.bt-wrapper .add').click(function () {
      //    // 商品ID
-        var goodsid = $(this).attr('goods_des_id.id')
+        var goodsid = $(this).attr('goodsid')
         console.log(goodsid)
      //    // that为了解决，在ajax中，this指向问题
      //    // var $that = $(this)
         $.get('/addcart/', function (response) {
             console.log(response)
+            // if (response.status == -1){ // 未登录
+            //     window.open('/login/', target="_self")
+            // } else if (response.status == 1){   // 添加成功
+            //     $that.prev().show().html(response.number)
+            //     $that.prev().prev().show()
+            // }
         })
     })
 

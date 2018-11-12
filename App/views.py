@@ -24,21 +24,24 @@ def index(request):
 
 
 def cart(request):
+    user_name = request.COOKIES.get('user_name')
     return render(request,'cart.html')
 
 
-def goods1(request):
-    # goods_des_id = Goods_des.objects.get(id=goods_des_id)
+def goods1(request,goods_des_id):
+    goods_des1 = Goods_des.objects.get(id=goods_des_id)
 
-    goods_des = Goods_des.objects.all()
+    # goods_des = Goods_des.objects.all()
+
     date = {
         # 'wheels': wheels,
-        'goods_des': goods_des,
+        # 'goods_des': goods_des,
         # 'user_name': user_name,
-        # 'goods_des_id':goods_des_id,
+        'goods_des1':goods_des1,
+
 
     }
-    # print(goods_des_id)
+    # print(goods_des1.id)
     return render(request,'goods_des.html',context=date)
 
 
@@ -140,13 +143,13 @@ def checkaccount(request):
 def addcart(request):
     user_name = request.COOKIES.get('user_name')
     goodsid = request.GET.get('goodsid')
-    token = request.session.get('token')
-
+    # token = request.session.get('token')
+    #
     responseData = {
         'msg':'添加购物车成功',
-        # 'status': 1 # 1标识添加成功，0标识添加失败，-1标识未登录
+        'status': 1 # 1标识添加成功，0标识添加失败，-1标识未登录
     }
-    return JsonResponse(responseData)
+    # return JsonResponse(responseData)
     # if user_name:   # 登录 [直接操作模型]
     #     # 获取用户
     #     user = User.objects.get(user_name=user_name)
@@ -171,10 +174,31 @@ def addcart(request):
     #
     #         responseData['number'] = cart.number
     #
-    #     return JsonResponse(responseData)
+    return JsonResponse(responseData)
     # else:   # 未登录 [跳转到登录页面]
     #     # 由于addcart这个是 用于 ajax操作， 所以这里是不能进行重定向!!
     #     # return redirect('axf:login')
     #     responseData['msg'] = '未登录，请登录后操作'
     #     responseData['status'] = -1
     #     return JsonResponse(responseData)
+def subcart(request):
+    # 获取数据
+    # token = request.session.get('token')
+    # goodsid = request.GET.get('goodsid')
+    #
+    # # 对应用户 和 商品
+    # user = User.objects.get(token=token)
+    # goods = Goods.objects.get(pk=goodsid)
+    #
+    # # 删减操作
+    # cart = Cart.objects.filter(user=user).filter(goods=goods).first()
+    # cart.number = cart.number - 1
+    # cart.save()
+    #
+    responseData = {
+        'msg': '购物车减操作成功',
+        'status': 1,
+        'number': cart.number
+    }
+
+    return JsonResponse(responseData)
