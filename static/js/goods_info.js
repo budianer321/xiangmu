@@ -1,4 +1,4 @@
-$(function(){		
+$(function(){
 	// $(".bags").click(function() {
      //    console.log("你点击了")
     // })
@@ -91,20 +91,62 @@ $(function(){
 	// 加操作
     $('.bt-wrapper .add').click(function () {
      //    // 商品ID
-        var goodsid = $(this).attr('goodsid')
-        console.log(goodsid)
-     //    // that为了解决，在ajax中，this指向问题
+     //    var goodsid = $(this).attr('goodsid')
+     //  va // that为了解决，在ajax中，this指向问题
      //    // var $that = $(this)
-        $.get('/addcart/', function (response) {
-            console.log(response)
+     //    $.get('/addcart/', function (response) {
+            // console.log(response)
             // if (response.status == -1){ // 未登录
             //     window.open('/login/', target="_self")
             // } else if (response.status == 1){   // 添加成功
-            //     $that.prev().show().html(response.number)
-            //     $that.prev().prev().show()
+            //     pass
+                // $that.prev().show().html(response.number)
+                // $that.prev().prev().show()
             // }
+            var num = parseInt($('.num').html())
+            // console.log(num)
+            num += 1
+             // console.log(num)
+            // console.log(num)
+            $('.num').html(num)
+        })
+    // })
+    // 减操作
+    $('.bt-wrapper .red').click(function () {
+     //    // 商品ID
+     //    var goodsid = $(this).attr('goodsid')
+     //  va // that为了解决，在ajax中，this指向问题
+     //    // var $that = $(this)
+     //    $.get('/addcart/', function (response) {
+            // console.log(response)
+            // if (response.status == -1){ // 未登录
+            //     window.open('/login/', target="_self")
+            // } else if (response.status == 1){   // 添加成功
+            //     pass
+                // $that.prev().show().html(response.number)
+                // $that.prev().prev().show()
+            // }
+            var num = parseInt($('.num').html())
+            console.log(num)
+            if (num<1)
+                $('.num').html(num)
+            else
+            num -= 1
+             console.log(num)
+            // console.log(num)
+            $('.num').html(num)
+        })
+    // })
+    $('.pro_btn .bot').click(function () {
+        var goodsid = $(this).attr('goodsid')
+        var number = $('.num').html()
+         // console.log(goodsid)
+         console.log(number)
+        // var $that = $(this)
+        $.get('/addcart/',{'goodsid':goodsid,'number':number}, function (response) {
+            console.log(goodsid)
+
+
         })
     })
-
-
 })

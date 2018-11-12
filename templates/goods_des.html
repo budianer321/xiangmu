@@ -22,18 +22,18 @@
 		<link rel="stylesheet" href="{% static 'css/shouwei.css' %}" type="text/css">
 		<link rel="stylesheet" href="{% static 'css/swiper.css' %}" type="text/css">
 		<link rel="stylesheet" href="{% static 'css/shouwei.css' %}" type="text/css">
-		<script src="{% static 'js/jquery-1.12.3.js' %}"></script>
-        <script src="{% static 'js/jquery-3.1.0.js' %}"></script>
-		<script src="{% static 'js/jquery.cookie.js' %}"></script>
-		<script src="{% static 'js/headerbar.js' %}"></script>
-		<script src="{% static 'js/slide.js' %}"></script>
-		<script src="{% static 'js/goods_list.js' %}"></script>
-		<script src="{% static 'js/goods_scroll.js' %}"></script>
-		<script src="{% static 'js/goods_info.js' %}"></script>
-		<script src="{% static 'js/goods_info2.js' %}"></script>
-        <script src="{% static 'js/index.js' %}"></script>
-        <script src="{% static 'js/swiper.js' %}"></script>
-        <script src="{% static 'js/goods_list1.js' %}"></script>
+{#		<script src="{% static 'js/jquery-1.12.3.js' %}"></script>#}
+{#        <script src="{% static 'js/jquery-3.1.0.js' %}"></script>#}
+{#		<script src="{% static 'js/jquery.cookie.js' %}"></script>#}
+{#		<script src="{% static 'js/headerbar.js' %}"></script>#}
+{#		<script src="{% static 'js/slide.js' %}"></script>#}
+{#		<script src="{% static 'js/goods_list.js' %}"></script>#}
+{#		<script src="{% static 'js/goods_scroll.js' %}"></script>#}
+{#		<script src="{% static 'js/goods_info.js' %}"></script>#}
+{#		<script src="{% static 'js/goods_info2.js' %}"></script>#}
+{#        <script src="{% static 'js/index.js' %}"></script>#}
+{#        <script src="{% static 'js/swiper.js' %}"></script>#}
+{#        <script src="{% static 'js/goods_list1.js' %}"></script>#}
 {#		<script src="{% static 'js/test.js' %}"></script>#}
 	</head>
 
@@ -42,11 +42,17 @@
 		<div class="header">
 			<div class="headerbar">
 				<div class="hb_content">
-					<div class="hb_con_left">
+					 {% if user_name %}
+                        <a>用户: {{ user_name }}</a>
+                        <a href="/logout/">|退出</a>
+                    {% else %}
+                       <div class="hb_con_left">
 						<a href="/register/" class="register">注册</a>
 						<a href="/login/" class="login">登录</a>
 						<a href="">订单查询</a>
-					</div>
+					    </div>
+{##}
+                    {% endif %}
 					<div class="hb_con_right">
 						<p>客服热线：4000-250-630</p>
 						<div class="follow">
@@ -547,22 +553,21 @@
 					</div>
 {#             加  ////    减           #}
                     <div class="bt-wrapper">
-                        <span class="red" goodsid="{{ goods_des1.id }}">-</span>
+                        <span class="red">-</span>
                         <span class="num">1
-                            {% for cart in carts %}
-                                {% if goods_des1.id == cart.id %}
-                                    {{ cart.number }}
-                                {% endif %}
-                            {% endfor %}
+{#                            {% for cart in carts %}#}
+{#                                {% if goods_des1.id == cart.id %}#}
+{#                                    {{ cart.number }}#}
+{#                                {% endif %}#}
+{#                            {% endfor %}#}
                             </span>
-
-                        <span class="add" goodsid="{{ goods_des1.id }}">+</span>
+                        <span class="add">+</span>
                     </div>
 {############         提交                #}
 					<div class="pro_btn">
 						<img class="buy" src="{% static 'img/buy.gif' %}">
                         <span class="bot" goodsid="{{ goods_des1.id }}">
-{#                            {{ goods_des1.id }}#}
+                            {{ goods_des1.id }}
                             <img class="bags" src="{% static 'img/bags.gif'%}">
                         </span>
 					</div>
