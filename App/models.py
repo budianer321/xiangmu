@@ -28,6 +28,7 @@ class Goods_des(Base):
     pinpai = models.CharField(max_length=100)
     # 描述
     desc = models.CharField(max_length=100)
+    # trackid = models.CharField(max_length=20)
     class Meta:
         db_table = 'goods_des'
 

@@ -13,13 +13,13 @@ def index(request):
 
     # 获取cookie
     user_name = request.COOKIES.get('user_name')
-    goods_de = goods_des.first()
+    # goods_de = goods_des.first()
     date = {
         'wheels': wheels,
         'goods_des': goods_des,
         'user_name':user_name,
     }
-    print(goods_de.name)
+    print(goods_des)
     return render(request, 'index1.html', context=date)
 
 
@@ -28,10 +28,22 @@ def cart(request):
 
 
 def goods1(request):
-    return render(request,'goods_des.html')
+    # goods_des_id = Goods_des.objects.get(id=goods_des_id)
+
+    goods_des = Goods_des.objects.all()
+    date = {
+        # 'wheels': wheels,
+        'goods_des': goods_des,
+        # 'user_name': user_name,
+        # 'goods_des_id':goods_des_id,
+
+    }
+    # print(goods_des_id)
+    return render(request,'goods_des.html',context=date)
 
 
 def goods2(request):
+
     return render(request,'goods_des2.html')
 
 

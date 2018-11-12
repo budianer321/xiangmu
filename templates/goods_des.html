@@ -6,6 +6,7 @@
 		<title>Dolce&Gabbana 杜嘉班纳 </title>
 		<link href="{% static 'css/shouwei.css' %}" rel="stylesheet" type="text/css">
 		<link href="{% static 'css/goods_des.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/shouwei.css' %}" type="text/css">
 		<script src="{% static 'js/jquery-1.12.3.js' %}"></script>
 		<script src="{% static 'js/jquery-3.1.0.js' %}"></script>
 		<script src="{% static 'js/headerbar.js' %}"></script>
@@ -14,6 +15,25 @@
 		<script src="{% static 'js/goods_info.js' %}"></script>
 		<script src="{% static 'js/jquery.cookie.js' %}"></script>
 		<script src="{% static 'js/goods_list.js' %}"></script>
+        <script src="{% static 'js/goods_info2.js' %}"></script>
+        <script src="{% static 'js/goods_list1.js' %}"></script>
+        <title>美西时尚-全球奢侈品购物网站,奢侈品网购,正品折扣,尽在MEICI.COM</title>
+		<link rel="stylesheet" href="{% static 'css/meixishishang.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/shouwei.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/swiper.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/shouwei.css' %}" type="text/css">
+		<script src="{% static 'js/jquery-1.12.3.js' %}"></script>
+        <script src="{% static 'js/jquery-3.1.0.js' %}"></script>
+		<script src="{% static 'js/jquery.cookie.js' %}"></script>
+		<script src="{% static 'js/headerbar.js' %}"></script>
+		<script src="{% static 'js/slide.js' %}"></script>
+		<script src="{% static 'js/goods_list.js' %}"></script>
+		<script src="{% static 'js/goods_scroll.js' %}"></script>
+		<script src="{% static 'js/goods_info.js' %}"></script>
+		<script src="{% static 'js/goods_info2.js' %}"></script>
+        <script src="{% static 'js/index.js' %}"></script>
+        <script src="{% static 'js/swiper.js' %}"></script>
+        <script src="{% static 'js/goods_list1.js' %}"></script>
 {#		<script src="{% static 'js/test.js' %}"></script>#}
 	</head>
 
@@ -118,7 +138,7 @@
                                         </li>
                                         </a>
 
-                                        <a href="{% url "App:goods2" %}">
+                                        <a href="{% url "App:goods2"%}">
                                              <li>
                                                 <div class="info">
                                                     <img src="{% static 'img/lists_2.jpg' %}">
@@ -413,8 +433,50 @@
 {#  ##################今日推荐单品##############################################################                                  #}
 									<dt style="font-weight: bold;">今日推荐单品</dt>
 									<ul>
+                                        {% for goods_de in goods_des %}
+                                            <a href="{% url "App:goods2" %}">
+                                                <li>
+                                                    <div class="info">
+                                                      <img src="{% static goods_de.img %}">
+                                                      <div class="goods_con_c">{{ goods_de.pinpai }}</div>
+                                                      <div class="des">{{ goods_de.desc }}</div>
+                                                    </div>
+                                                </li>
+                                            </a>
+
+                                       {% endfor %}
+
+{#                                        <a href="{% url "App:goods2" %}">#}
+{#                                            <li>#}
+{#                                                <div class="info">#}
+{#                                                    <img src="{% static 'img/lists_1.jpg' %}">#}
+{#                                                    <div class="goods_con_c">Dolce Gabbana 杜嘉班纳</div>#}
+{#                                                    <div class="des">SICILY 小牛皮 女士 两用包</div>#}
+{##}
+{#                                                </div>#}
+{#                                        </li>#}
+{#                                        </a>#}
+{##}
+{#                                        <a href="{% url "App:goods2" %}">#}
+{#                                             <li>#}
+{#                                                <div class="info">#}
+{#                                                    <img src="{% static 'img/lists_2.jpg' %}">#}
+{#                                                    <div class="goods_con_c">Fendi 芬迪</div>#}
+{#                                                    <div class="des">牛皮 女士 斜挎包</div>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                        </a>#}
+{#                                        <li>#}
+{#                                            <div class="info">#}
+{#                                                <img src="{% static 'img/lists_3.jpg' %}">#}
+{#                                                <div class="goods_con_c">Prada 普拉达</div>#}
+{#                                                <div class="des">牛皮  男仕 平底鞋</div>#}
+{#                                            </div>#}
+{#                                        </li>#}
+{#                                    <ul>#}
+{##}
 {#                                        {% for goods_de in goods_des %}#}
-{#                                            <a href="">#}
+{#                                            <a href="{% url "App:goods2" %}">#}
 {#                                                <li>#}
 {#                                                    <div class="info">#}
 {#                                                      <img src="{% static goods_de.img %}">#}
@@ -424,36 +486,9 @@
 {#                                                </li>#}
 {#                                            </a>#}
 {##}
+{##}
 {#                                       {% endfor %}#}
-
-                                        <a href="{% url "App:goods1" %}">
-                                            <li>
-                                                <div class="info">
-                                                    <img src="{% static 'img/lists_1.jpg' %}">
-                                                    <div class="goods_con_c">Dolce Gabbana 杜嘉班纳</div>
-                                                    <div class="des">SICILY 小牛皮 女士 两用包</div>
-
-                                                </div>
-                                        </li>
-                                        </a>
-
-                                        <a href="{% url "App:goods2" %}">
-                                             <li>
-                                                <div class="info">
-                                                    <img src="{% static 'img/lists_2.jpg' %}">
-                                                    <div class="goods_con_c">Fendi 芬迪</div>
-                                                    <div class="des">牛皮 女士 斜挎包</div>
-                                                </div>
-                                            </li>
-                                        </a>
-                                        <li>
-                                            <div class="info">
-                                                <img src="{% static 'img/lists_3.jpg' %}">
-                                                <div class="goods_con_c">Prada 普拉达</div>
-                                                <div class="des">牛皮  男仕 平底鞋</div>
-                                            </div>
-                                        </li>
-
+{#                                    </ul>#}
 
 
 									</ul>
@@ -513,9 +548,10 @@
 
 
 						<img class="buy" src="{% static 'img/buy.gif' %}">
-{#                        <span goodsid="goods_des.id">#}
-                            <img class="bags" src="{% static 'img/bags.gif' %}">
-{#                        </span>#}
+                        <span goodsid="goods_des_id.id">
+                            {{ goods_des_id.id }}
+                            <img class="bags" src="{% static 'img/bags.gif'%}">
+                        </span>
 					</div>
 					<div class="pro_con">
 
